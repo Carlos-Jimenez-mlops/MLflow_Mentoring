@@ -30,7 +30,7 @@
 
 # Developments and Operations is attending into separate groups
 # DS :
-#   -> Data Acquisition, Data Proocessing, model Building, Training MOdel , model Validation
+#   -> Data Acquisition, Data Processing, model Building, Training Model , model Validation
 # Ops:
 #   -> Package, compile , Deploy, Release, and Monitoring
 
@@ -54,11 +54,12 @@
 
 # Principles ===========================
 # i) Transition Friction: Design algos like a Microservices
+#     Microservices : (Model_{design} F_model_tracking(mlflow))+(Docker + FastAPI)
 # ii) Version Control System
 # iii) Performance -> Distributed computing and containerization in Docker or Kubernetes
 # iv) Automatization -> Build Workflows and CI/CD
 # v) Monitoring
-# vi) Continius Training
+# vi) Continuous Training -> Tesla Enginee
 
 
 # MLflow ===================
@@ -84,6 +85,7 @@
 
 # First Example =================
 
+# Run : python3 class\#1/class1.py --path /Users/danieljimenez/Desktop/MLflow_Mentoring/chapter1/dataset/red-wine-quality.csv --n_estimators 100 --max_depth 2
 
 # Libraries -------------
 import warnings
@@ -129,14 +131,18 @@ def run_model(args):
         data = pd.read_csv(args.path)
 
         logger.info('Splitting dataset')
-        train, test = train_test_split(data, test_size=0.25, random_state=42)
+        train, test = train_test_split(data,
+                                       test_size=0.25,
+                                       random_state=42)
         train_x = train.drop(["quality"], axis=1)
         test_x = test.drop(["quality"], axis=1)
         train_y = train[["quality"]]
         test_y = test[["quality"]]
 
         logger.info('Training RandomForest model')
-        rf = RandomForestRegressor(n_estimators=args.n_estimators, max_depth=args.max_depth, random_state=42)
+        rf = RandomForestRegressor(n_estimators=args.n_estimators,
+                                   max_depth=args.max_depth,
+                                   random_state=42)
         rf.fit(train_x, train_y.values.ravel())
 
         predicted_qualities = rf.predict(test_x)
@@ -151,9 +157,11 @@ def run_model(args):
         logger.error(f"An error occurred: {e}")
 
 if __name__=='__main__':
+    # First Step : Define parser
     parser = argparse.ArgumentParser(
         description='design model training'
     )
+    # Adding the parser (Conditions)
     parser.add_argument("--path",
                         type=str,
                         required=True)
@@ -165,6 +173,7 @@ if __name__=='__main__':
                         type=int,
                         required=True,
                         default=5)
+    # 3rd set the parse
     args = parser.parse_args()
     run_model(args)
 

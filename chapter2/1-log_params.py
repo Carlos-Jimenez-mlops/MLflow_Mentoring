@@ -5,14 +5,14 @@
 
 
 # Descriptions ===========================
-#Experiment Tracking: With logging functions, you can keep a record of different experiments you conduct,
+# Experiment Tracking: With logging functions, you can keep a record of different experiments you conduct,
 # including the parameters used, the performance metrics, and any additional notes or tags. This makes it easier to compare
 # different models and understand what works best for your task.
 
-#Model Versioning: Logging functions allow you to log versions of your models along with their performance metrics.
+# Model Versioning: Logging functions allow you to log versions of your models along with their performance metrics.
 # This helps in keeping track of model iterations and facilitates reproducibility by ensuring that you can always go back to previous versions if needed.
 
-#Performance Monitoring: You can use logging functions to monitor the performance of your models over time.
+# Performance Monitoring: You can use logging functions to monitor the performance of your models over time.
 # This includes tracking metrics like accuracy, loss, and other custom metrics specific to your model and task.
 # This monitoring is crucial for model maintenance and optimization.
 
@@ -31,6 +31,7 @@
 # get_traking_uri() :  Get set tracking URI
 
 
+# Run: mlflow ui --backend-store-uri ./tracks_experiments/
 
 ## Example #2 ===================
 

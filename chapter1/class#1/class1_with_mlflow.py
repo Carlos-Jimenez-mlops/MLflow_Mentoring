@@ -24,7 +24,7 @@
 # mlflow.log_metric('r2', r2)
 
 # Run
-# python class1_with_mlflow.py --path dataset/red-wine-quality.csv --n_estimators 100 --max_depth 3
+# python class1_with_mlflow.py --path /Users/danieljimenez/Desktop/MLflow_Mentoring/chapter1/dataset/red-wine-quality.csv --n_estimators 100 --max_depth 3
 # Libraries -------------
 import warnings
 import argparse

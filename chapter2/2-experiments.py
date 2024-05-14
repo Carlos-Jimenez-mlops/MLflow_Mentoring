@@ -79,7 +79,7 @@ def run_model(args):
             name='RanForest_Example_v2',
             tags={'version': 'v1',
                   'priority':'p1'},
-            artifact_location=Path.cwd().joinpath('experiments') .as_uri()# Create new folder
+            artifact_location=Path.cwd().joinpath('experiments').as_uri()# Create new folder
         )
 
         # Get experiment ---------------
